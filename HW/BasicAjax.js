@@ -59,15 +59,14 @@ function updateTripSheet(trip) {
             var arrival = new Date(parseInt(trip.ArrivalTime.substr(6)));
             var arrivalTime = (Math.floor((arrival - new Date()) / 60000)) > 0 ? Math.floor((arrival - new Date()) / 60000) : 'Now';
 
-            tripInfo += 'in ' + arrivalTime + ' Mins ' + isRealTime + '\n'; 
+            tripInfo += (arrivalTime != 'Now'? 'in ' + arrivalTime + ' Mins ':arrivalTime ) + isRealTime + '\n'; 
             if(isNextTrip)
             {
               isNextTrip = false;
               simply.subtitle(tripInfo);
-              tripInfo = 'At ' + arrival.toLocaleTimeString();
+              tripInfo = '';
             }
-            else
-              tripInfo += '\nAt ' + arrival.toLocaleTimeString();
+            tripInfo += 'At ' + arrival.toLocaleTimeString();
             tripInfo += '\n- - - - - - - - - - - - -\n';
         }
 
