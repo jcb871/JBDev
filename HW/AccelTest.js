@@ -32,4 +32,5 @@ simply.setText({
   title: 'Accel Demo!',
   body: 'Press buttons or tap the watch!',
 }, true);
+simply.scrollable(true);
 
