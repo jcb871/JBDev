@@ -4,7 +4,6 @@ var tripInfo;
 var urlBPOffice = 'http://services.commuterapi.com/TransitODataService.svc/GeoAreas(\'29.7838277%7C-95.6352798%7C0.2\')/NextArrivals?%24expand=Stop&%24select=IsRealTime%2CDestinationName%2CStopName%2CArrivalTime%2CRouteName&key=65CFF0BB-8CCB-4FB2-BDB7-70B8E48DDDC6&%24format=json';
 var urlPKWY = 'http://services.commuterapi.com/TransitODataService.svc/GeoAreas(\'9.7838277%7C-5.6352798%7C0.2\')/NextArrivals?%24expand=Stop&%24select=IsRealTime%2CDestinationName%2CStopName%2CArrivalTime%2CRouteName&key=65CFF0BB-8CCB-4FB2-BDB7-70B8E48DDDC6&%24format=json';
 var svcUrl = isFromOffice ? urlBPOffice : urlPKWY;
-var txtNextTrip;
 var isNextTrip;
 var direction = isFromOffice ? 'To Home' : 'To Office';
 simply.on('singleClick', function(e) {
@@ -12,10 +11,10 @@ simply.on('singleClick', function(e) {
   if(e.button == 'select')
   {
     isFromOffice = !isFromOffice;
-  }
-  direction = isFromOffice ? 'To Home' : 'To Office';
-  simply.title(direction);
-  getNextMetro();    
+    direction = isFromOffice ? 'To Home' : 'To Office';
+    simply.title(direction);
+    getNextMetro();   
+  }   
 });
 
 simply.on('accelTap', function(e) {
@@ -46,9 +45,10 @@ function getNextMetro()
                             continue;
                         }
                       tripInfo = '';
-                      txtNextTrip = updateTripSheet(trip);
+                      updateTripSheet(trip);
                     }                  
-                    simply.body(txtNextTrip );
+                    simply.body(tripInfo);
+                    simply.scrollable(true);
                 });
 }
 
@@ -67,8 +67,7 @@ function updateTripSheet(trip) {
               tripInfo = '' ;
             }
             tripInfo += '\nAt ' + arrival.toLocaleTimeString();
-            tripInfo += '\n- - - - - - -';
-            return tripInfo;
+            tripInfo += '\n- - - - - - - - - - - - -';
         }
 
 simply.setText({
