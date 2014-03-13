@@ -45,8 +45,8 @@ simply.on('accelTap', function(e) {
                         var txtNextTrip = updateTripSheet(trip);
                       simply.text({ title: 'Next Metro', subtitle: 'To Home', body: txtNextTrip });
                     }
-                }
-            });
+                });
+  });
 
 function updateTripSheet(trip) {
             if (!trip.JBDest)
