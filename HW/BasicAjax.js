@@ -9,23 +9,22 @@ var isNextTrip;
 var direction = isFromOffice ? 'To Home' : 'To Office';
 simply.on('singleClick', function(e) {
   console.log(util2.format('single clicked $button!', e));
-  isFromOffice = !isFromOffice;
+  if(e.button == 'select')
+  {
+    isFromOffice = !isFromOffice;
+  }
   direction = isFromOffice ? 'To Home' : 'To Office';
   simply.title(direction);
+  getNextMetro();    
 });
 
 simply.on('accelTap', function(e) {
   console.log(util2.format('tapped accel axis $axis $direction!', e));
-  /*
-  navigator.geolocation.getCurrentPosition(function(pos) {
-  var coords = pos.coords;
-  var weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?' +
-      'lat=' + coords.latitude + '&lon=' + coords.longitude + '&units=metric';
-  ajax({ url: weatherUrl, type: 'json' }, function(data) {
-    simply.text({ title: data.name, subtitle: data.main.temp });
+   getNextMetro();
   });
-});
-  */
+
+function getNextMetro()
+{  
   simply.subtitle('Loading Trip Info...');
    ajax({
                 type: 'json',
@@ -51,17 +50,16 @@ simply.on('accelTap', function(e) {
                     }                  
                     simply.body(txtNextTrip );
                 });
-  });
+}
 
 function updateTripSheet(trip) {
             if (!trip.JBDest)
                 return;
-            var isRealTime = trip.IsRealTime ? 'Real Time' : 'Scheduled';
+            var isRealTime = trip.IsRealTime ? 'RT' : 'Sched';
             var arrival = new Date(parseInt(trip.ArrivalTime.substr(6)));
             var arrivalTime = (Math.floor((arrival - new Date()) / 60000)) > 0 ? Math.floor((arrival - new Date()) / 60000) : 'Now';
 
-            //tripsDiv.append('Bus: ' + trip.RouteName + ' ' + trip.JBDest + ' ' + trip.StopName + '<br />');
-            tripInfo = 'Arrives in :' + arrivalTime + ' Mins ' + isRealTime; 
+            tripInfo += 'Arrives in :' + arrivalTime + ' Mins ' + isRealTime; 
             if(isNextTrip)
             {
               isNextTrip = false;
@@ -75,5 +73,5 @@ function updateTripSheet(trip) {
 
 simply.setText({
   title: 'JB Metro Trip',
-  body: 'Press select or tap the watch!',
+  body: 'Press any button or tap the watch!',
 }, true);
