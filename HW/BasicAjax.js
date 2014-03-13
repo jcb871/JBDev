@@ -23,8 +23,7 @@ simply.on('accelTap', function(e) {
   simply.subtitle('Loading Trip Info...');
    ajax({
                 type: 'json',
-                url: svcUrl,
-                success: function (data) {
+                url: svcUrl}, function (data) {
                     simply.subtitle('Reading Trip Info...');
                   var res = JSON.stringify(data);
                     simply.body(res);
@@ -46,13 +45,8 @@ simply.on('accelTap', function(e) {
                         var txtNextTrip = updateTripSheet(trip);
                       simply.text({ title: 'Next Metro', subtitle: 'To Home', body: txtNextTrip });
                     }
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                  //'Error in update'
-                    simply.text({ title: xhr.status, subtitle: thrownError });
                 }
             });
-});
 
 function updateTripSheet(trip) {
             if (!trip.JBDest)
