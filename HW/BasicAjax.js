@@ -11,8 +11,6 @@ simply.on('singleClick', function(e) {
   if(e.button == 'select')
   {
     isFromOffice = !isFromOffice;
-    direction = isFromOffice ? 'To Home' : 'To Office';
-    simply.title(direction);
     getNextMetro();   
   }   
 });
@@ -24,11 +22,14 @@ simply.on('accelTap', function(e) {
 
 function getNextMetro()
 {  
+  direction = isFromOffice ? 'To Home' : 'To Office';
+  simply.title(direction);
   simply.subtitle('Loading Trip Info...');
    ajax({
                 type: 'json',
                 url: svcUrl}, function (data) {
                     simply.subtitle('Reading Trip Info...');
+                    tripInfo = '';
                     isNextTrip = true;
                     for (var k = 0; k < data.d.results.length; k++) {
                         var trip = data.d.results[k];
@@ -44,7 +45,6 @@ function getNextMetro()
                         else {
                             continue;
                         }
-                      tripInfo = '';
                       updateTripSheet(trip);
                     }                  
                     simply.body(tripInfo);
@@ -67,7 +67,7 @@ function updateTripSheet(trip) {
               tripInfo = '' ;
             }
             tripInfo += '\nAt ' + arrival.toLocaleTimeString();
-            tripInfo += '\n- - - - - - - - - - - - -';
+            tripInfo += '\n- - - - - - -';
         }
 
 simply.setText({
