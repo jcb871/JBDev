@@ -25,6 +25,9 @@ simply.on('accelTap', function(e) {
                 type: 'json',
                 url: svcUrl,
                 success: function (data) {
+                    simply.subtitle('Reading Trip Info...');
+                  var res = JSON.stringify(data);
+                    simply.body(res);
                     for (var k = 0; k < data.d.results.length; k++) {
                         var trip = data.d.results[k];
 
