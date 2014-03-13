@@ -66,7 +66,7 @@ function updateTripSheet(trip) {
               simply.subtitle(tripInfo);
               tripInfo = '';
             }
-            tripInfo += 'At ' + arrival.toLocaleTimeString();
+            tripInfo += 'at ' + arrival.toLocaleTimeString();
             tripInfo += '\n- - - - - - - - - - - - -\n';
         }
 
