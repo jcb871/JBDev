@@ -11,7 +11,7 @@ simply.on('singleClick', function(e) {
   for(var k=0;k<e.samples;k++)
   {
       var sample = e.accels[k];
-      accData += String.format('x: {0}, y:{1}, z:{2}\n', sample.x, sample.y, sample.z);
+      accData += String.format('({0},y:{1},z:{2})\n', sample.x, sample.y, sample.z);
   }
   simply.setText({subtitle:'updated', body: accData});
   simply.off('accelData');
