@@ -20,6 +20,7 @@ simply.on('accelTap', function(e) {
   });
 });
   */
+  simply.subtitle('Loading Trip Info...');
    ajax({
                 type: 'json',
                 url: svcUrl,
