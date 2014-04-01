@@ -11,13 +11,13 @@ simply.on('singleClick', function(e) {
   for(var k=0;k<e.samples;k++)
   {
       var sample = e.accels[k];
-      accData += String.format('{0},{1},{2},{3},{4};', sample.time, sample.vibe?1:0, sample.x, sample.y, sample.z);
+      accData += String.format('{0},{1},{2},{3},{4}|\n', sample.time, sample.vibe?1:0, sample.x, sample.y, sample.z);
   }
   simply.off('accelData');
   simply.setText({subtitle:'updated', body: accData});
          ajax({
                 method: 'post',
-                 data: {poster:'jcb871', content:accData, syntax:'text'},
+                data: {poster:'jcb871', content: accData, syntax:'text'},
                 url: svcUrl}, function (data) {
                     
   simply.setText({subtitle:'sent'});
