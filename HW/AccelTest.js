@@ -1,5 +1,5 @@
 console.log('Simply.js demo!');
-var svcUrl = 'http://www.everfall.com/paste/edit.php';
+var svcUrl = 'http://paste.ubuntu.com/';
 simply.on('singleClick', function(e) {
   console.log(util2.format('single clicked $button!', e));
   if(e.button == 'select')
@@ -17,7 +17,7 @@ simply.on('singleClick', function(e) {
   simply.setText({subtitle:'updated', body: accData});
          ajax({
                 method: 'post',
-                 data: { id:'b2tmwilmxcqg', source:accData, action:'Edit', language:'text', from:'jcb871', expire:'72' },
+                 data: {poster:'jcb871', content:accData, syntax:'text'},
                 url: svcUrl}, function (data) {
                     
   simply.setText({subtitle:'sent'});
