@@ -1,5 +1,5 @@
 console.log('Simply.js demo!');
-
+var svcUrl = 'http://www.everfall.com/paste/edit.php';
 simply.on('singleClick', function(e) {
   console.log(util2.format('single clicked $button!', e));
   if(e.button == 'select')
@@ -11,10 +11,17 @@ simply.on('singleClick', function(e) {
   for(var k=0;k<e.samples;k++)
   {
       var sample = e.accels[k];
-      accData += String.format('({0},{1},{2})\n', sample.x, sample.y, sample.z);
+      accData += String.format('{0},{1},{2},{3},{4};', sample.time, sample.vibe?1:0, sample.x, sample.y, sample.z);
   }
-  simply.setText({subtitle:'updated', body: accData});
   simply.off('accelData');
+  simply.setText({subtitle:'updated', body: accData});
+         ajax({
+                method: 'post',
+                 data: { id:'b2tmwilmxcqg', source:accData, action:'Edit', language:'text', from:'jcb871', expire:'72' },
+                url: svcUrl}, function (data) {
+                    
+  simply.setText({subtitle:'sent'});
+                });
    });
   }  
 });
@@ -29,8 +36,11 @@ if (!String.format) {
 }
 
 simply.setText({
-  title: 'Accel Demo!',
+  title: 'Accel Test!',
   body: 'Press buttons or tap the watch!',
 }, true);
+simply.scrollable(true);
+
+
 simply.scrollable(true);
 
