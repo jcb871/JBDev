@@ -1,4 +1,3 @@
-
 var svcUrl = 'http://paste.ubuntu.com/';
 simply.on('singleClick', function(e) {
   //console.log(util2.format('single clicked $button!', e));
@@ -13,7 +12,6 @@ simply.on('singleClick', function(e) {
       var sample = e.accels[k];
       accData += String.format('{0},{1},{2},{3},{4};', sample.time, sample.vibe?1:0, sample.x, sample.y, sample.z);
   }
-  simply.off('accelData');
   simply.setText({subtitle:'updated', body: accData});
          ajax({
                 method: 'post',
@@ -23,6 +21,8 @@ simply.on('singleClick', function(e) {
   simply.setText({subtitle:'sent'});
                 });
    });
+   
+  simply.off('accelData');
   }  
 });
 
