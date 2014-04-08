@@ -1,9 +1,11 @@
 
-var svcUrl = 'http://paste.ubuntu.com/';
+  var svcUrl = 'http://paste.ubuntu.com/';
+
 simply.on('singleClick', function(e) {
   //console.log(util2.format('single clicked $button!', e));
   if(e.button == 'select')
   { 
+  simply.subtitle('Loading.'+svcUrl);
     simply.on('accelData', function(e) {
   simply.subtitle('Loading...');
   //console.log(util2.format('Got $samples samples.', e));
@@ -14,14 +16,14 @@ simply.on('singleClick', function(e) {
       accData += String.format('{0},{1},{2},{3},{4};', sample.time, sample.vibe?1:0, sample.x, sample.y, sample.z);
   }
   
-  simply.setText({subtitle:'updated', body: accData});
+  simply.setText({subtitle:'updated', body: accData});/*
          ajax({
                 method: 'post',
                 data: {poster:'jcb871', content: accData, syntax:'text'},
                  url: svcUrl}, function (data) {  
   simply.setText({subtitle:'sent'});
                 }
-                );
+                );*/
    });
     simply.off('accelData');
   }  
@@ -37,7 +39,7 @@ if (!String.format) {
 }
 
 simply.setText({
-  title: 'Accel Tester!',
+  title: 'Accel Tester !',
   body: 'Press buttons or tap the watch!',
 }, true);
 simply.scrollable(true);
