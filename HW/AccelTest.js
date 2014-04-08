@@ -8,6 +8,7 @@ simply.on('singleClick', function(e) {
     simply.on('accelData', function(e) {
   simply.subtitle('Loading...');
   //console.log(util2.format('Got $samples samples.', e));
+  /*
   var accData = '';
   for(var k=0;k<e.samples;k++)
   {
@@ -15,7 +16,7 @@ simply.on('singleClick', function(e) {
       accData += String.format('{0},{1},{2},{3},{4}:', sample.time, sample.vibe?1:0, sample.x, sample.y, sample.z);
   }
   
-  simply.setText({subtitle:'updated', body: accData});/*
+  simply.setText({subtitle:'updated', body: accData});
          ajax({
                 method: 'post',
                 data: {poster:'jcb871', content: accData, syntax:'text'},
@@ -24,10 +25,10 @@ simply.on('singleClick', function(e) {
                 }
                 );*/
    });
-   simply.subtitle('Done');
+   //simply.subtitle('Done');
     simply.off('accelData');
     
-   simply.subtitle('Done !!!');
+   //simply.subtitle('Done !!!');
   }  
 });
 
