@@ -24,7 +24,10 @@ simply.on('singleClick', function(e) {
                 }
                 );*/
    });
+   simply.subtitle('Done');
     simply.off('accelData');
+    
+   simply.subtitle('Done !!!');
   }  
 });
 
