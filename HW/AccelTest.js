@@ -20,10 +20,10 @@ simply.on('singleClick', function(e) {
       accData += String.format('{0},{1},{2},{3},{4}\n', sample.time, sample.vibe?1:0, sample.x, sample.y, sample.z);
   }
 //count++
-  simply.setText({subtitle:'updated', body: accData});
+  simply.setText({subtitle:'sending...', body: accData});
          ajax({
                 method: 'post',
-                data: {name:'jcb871', title:'JAccel Data', text: accData, expire:'30'},
+                data: {name:'jcb871', title:'JAccel Data', text: 'accData is fetched', expire:30},
                  url: svcUrl}, function (data) {  
   simply.setText({subtitle:'sent '+ data});
                 }
