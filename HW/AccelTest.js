@@ -23,7 +23,8 @@ simply.on('singleClick', function(e) {
   simply.setText({subtitle:'sending...', body: accData});
          ajax({
                 method: 'post',
-                data: {name:'jcb871', title:'JAccel Data', text: 'accData is fetched', expire:30},
+                data: {name:'jcb8713', title:'JB Accel Data', text:'accData is fetched 3',
+                lang:'text', code:'some text', expire:30},
                  url: svcUrl}, function (data) {  
   simply.setText({subtitle:'sent '+ data});
                 }
