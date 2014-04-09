@@ -1,5 +1,5 @@
   var svcUrl = 'http://f00l.de/pastebin/api/create';
-var count = 0;
+//var count = 0;
 simply.on('singleClick', function(e) {
   //console.log(util2.format('single clicked $button!', e));
   if(e.button == 'select')
@@ -19,13 +19,13 @@ simply.on('singleClick', function(e) {
       var sample = e.accels[k];
       accData += String.format('{0},{1},{2},{3},{4}\n', sample.time, sample.vibe?1:0, sample.x, sample.y, sample.z);
   }
-  count++;
+//count++
   simply.setText({subtitle:'updated', body: accData});
          ajax({
                 method: 'post',
-                data: {name:'jcb871', title:'JAccelData'+count, text:accData, expire:'60'},
+                data: {name:'jcb871', title:'JAccel Data', text: accData, expire:'30'},
                  url: svcUrl}, function (data) {  
-  simply.setText({subtitle:'sent'});
+  simply.setText({subtitle:'sent '+ data});
                 }
               );
                 
