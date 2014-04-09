@@ -1,15 +1,11 @@
-  var svcUrl = 'http://paste.ubuntu.com/';
-
+  var svcUrl = 'http://f00l.de/pastebin/api/create';
+var count = 0;
 simply.on('singleClick', function(e) {
   //console.log(util2.format('single clicked $button!', e));
   if(e.button == 'select')
   { 
-  simply.subtitle('Loading.'+svcUrl);
+    simply.subtitle('Loading.'+svcUrl);
     simply.on('accelData',onAccelData);
-   //simply.subtitle('Done');
-    
-    
-   //simply.subtitle('Done !!!');
   }  
 });
 
@@ -23,11 +19,11 @@ simply.on('singleClick', function(e) {
       var sample = e.accels[k];
       accData += String.format('{0},{1},{2},{3},{4}\n', sample.time, sample.vibe?1:0, sample.x, sample.y, sample.z);
   }
-  
+  count++;
   simply.setText({subtitle:'updated', body: accData});
          ajax({
                 method: 'post',
-                data: {poster:'jcb871', content: accData, syntax:'text'},
+                data: {name:'jcb871', title:'JAccelData'+count, text:accData, expire:'60'},
                  url: svcUrl}, function (data) {  
   simply.setText({subtitle:'sent'});
                 }
