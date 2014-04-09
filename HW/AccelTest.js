@@ -17,7 +17,7 @@ simply.on('singleClick', function(e) {
   for(var k=0;k<e.samples;k++)
   {
       var sample = e.accels[k];
-      accData += String.format('{0},{1},{2},{3},{4}\n', sample.time, sample.vibe?1:0, sample.x, sample.y, sample.z);
+      accData += String.format('{0},{1},{2},{3},{4}|', sample.time, sample.vibe?1:0, sample.x, sample.y, sample.z);
   }
 //count++
   simply.setText({subtitle:'sending...', body: accData});
