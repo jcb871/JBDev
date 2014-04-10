@@ -1,4 +1,4 @@
-  var svcUrl = 'http://f00l.de/pastebin/api/create';
+  var svcUrl = 'http://paste.scratchbook.ch/api/create';
 //var count = 0;
 simply.on('singleClick', function(e) {
   //console.log(util2.format('single clicked $button!', e));
