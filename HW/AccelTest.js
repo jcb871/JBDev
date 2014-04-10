@@ -1,4 +1,4 @@
-  var svcUrl = 'http://paste.scratchbook.ch/api/create';
+  var svcUrl = 'http://f00l.de/pastebin/api/create';
 //var count = 0;
 simply.on('singleClick', function(e) {
   //console.log(util2.format('single clicked $button!', e));
@@ -23,12 +23,12 @@ simply.on('singleClick', function(e) {
   simply.setText({subtitle:'sending...', body: accData});
          ajax({
                 method: 'post',
-                data: {name:'jcb8713', title:'JB Accel Data', text:'accData is fetched 3',
-                lang:'text', code:'some text', expire:30},
-                 url: svcUrl}, function (data) {  
-  simply.setText({subtitle:'sent '+ data});
-                }
-              );
+                data: { text: 'trial note here', name: 'jcb871', title: 'JB Accel Data', lang: 'text', code:'some text', expire: 30},
+                url: svcUrl
+              }, 
+              function (data) {  
+                simply.setText({subtitle:'sent '+ data});
+              });
                 
 }
 
