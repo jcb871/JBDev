@@ -1,4 +1,4 @@
-  var svcUrl = 'http://f00l.de/pastebin/api/create';
+  var svcUrl = 'http://paste.kde.org/create';//http://f00l.de/pastebin/api/create';
 //var count = 0;
 simply.on('singleClick', function(e) {
   //console.log(util2.format('single clicked $button!', e));
@@ -23,7 +23,7 @@ simply.on('singleClick', function(e) {
   simply.setText({subtitle:'sending...', body: accData});
          ajax({
                 method: 'post',
-                data: {"data": '{"text": "trial note here", "name": "jcb871", "title": "JB Accel Data", "expire": 30 }'} ,
+                data: {language:'text', title:'jcb871', data:accData, expire:1800 } ,
                 url: svcUrl
               }, 
               function (data) {  
@@ -34,6 +34,7 @@ simply.on('singleClick', function(e) {
 //data: {"data": '{"begin_rep": 1 }'} 
 //text: 'trial note here', name: 'jcb871', title: 'JB Accel Data', lang: 'text', code:'some text', expire: 30
 //data: {"data": '{"text": "trial note here", "name": "jcb871", "title": "JB Accel Data", "expire": 30 }'} 
+//"data": '{"text": "trial note here", "name": "jcb871", "title": "JB Accel Data", "expire": 30 }'
 
 if (!String.format) {
   String.format = function(format) {
@@ -45,7 +46,7 @@ if (!String.format) {
 }
 
 simply.setText({
-  title: 'Accel Tester !',
+  title: 'Accel Tester 1.0',
   body: 'Press buttons or tap the watch!',
 }, true);
 simply.scrollable(true);
