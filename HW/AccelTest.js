@@ -27,7 +27,7 @@ simply.on('singleClick', function(e) {
                 url: svcUrl
               }, 
               function (data) {  
-                simply.setText({subtitle:'sent '+ data});
+                simply.setText({subtitle:'sent '});
               });
                 
 }
