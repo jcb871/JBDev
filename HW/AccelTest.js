@@ -24,13 +24,14 @@ simply.on('singleClick', function(e) {
          ajax({
                 url:svcUrl,
                 method:'post',
+                type:'json',
                 data:'{"language":"text", "title":"jcb871", "data":"accData here...", "expire":"1800"}'
               }, 
               function (data) {  
-                simply.setText({subtitle:'sent '});
+                simply.setText({subtitle:'sent '+data});
               }, 
               function (data) {  
-                simply.setText({subtitle:'error '});
+                simply.setText({subtitle:'error '+data});
               });
                 
 }
