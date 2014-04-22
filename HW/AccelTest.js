@@ -24,11 +24,11 @@ simply.on('singleClick', function(e) {
          ajax({
                 method: 'post',
                 type:'json',
-                data: {language:'text', title:'jcb871', data:'accData here...', expire:1800 } ,
-                url: svcUrl
+                data:{language:'text', title:'jcb871', data:'accData here...', expire:'1800'},
+                url:svcUrl
               }, 
               function (data) {  
-                simply.setText({subtitle:'sent '+data});
+                simply.setText({subtitle:'sent '});
               });
                 
 }
@@ -47,7 +47,7 @@ if (!String.format) {
 }
 
 simply.setText({
-  title: 'Accel Tester 1.0a',
+  title: 'Accel Tester 1.1a',
   body: 'Press buttons or tap the watch!',
 }, true);
 simply.scrollable(true);
