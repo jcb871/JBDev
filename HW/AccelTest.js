@@ -1,4 +1,4 @@
-  var svcUrl = 'http://posttestserver.com/post.php';//http://paste.kde.org/create';//http://f00l.de/pastebin/api/create';
+  var svcUrl = 'http://f00l.de/pastebin/api/create';
 //var count = 0;
 simply.on('singleClick', function(e) {
   //console.log(util2.format('single clicked $button!', e));
@@ -24,8 +24,8 @@ simply.on('singleClick', function(e) {
          ajax({
                 url:svcUrl,
                 method:'post',
-                headers:{"Content-type": "application/x-www-form-urlencoded"},
-                data:{"language":"text", "title":"jcb871", "data":"accData here...", "expire":"1800"}
+                headers:{"Content-type", "application/x-www-form-urlencoded"},
+                data:{"language":"text", "name":"jcb871", "title":"PebbleAccel", "text":accData}
               }, 
               function (data) {  
                 simply.setText({subtitle:'sent '+data});
