@@ -24,8 +24,8 @@ simply.on('singleClick', function(e) {
          ajax({
                 url:svcUrl,
                 method:'post',
-                type:'json',
-                data:'{"language":"text", "title":"jcb871", "data":"accData here...", "expire":"1800"}'
+                headers:{"Content-type", "application/x-www-form-urlencoded"},
+                data:{"language":"text", "title":"jcb871", "data":"accData here...", "expire":"1800"}
               }, 
               function (data) {  
                 simply.setText({subtitle:'sent '+data});
