@@ -22,10 +22,9 @@ simply.on('singleClick', function(e) {
 //count++
   simply.setText({subtitle:'sending...', body: accData});
          ajax({
+                url:svcUrl,
                 method:'post',
-                type:'json',
-                data:{"language":"text", "title":"jcb871", "data":"accData here...", "expire":"1800"},
-                url:svcUrl
+                data:{"language":"text", "title":"jcb871", "data":"accData here...", "expire":"1800"}
               }, 
               function (data) {  
                 simply.setText({subtitle:'sent '});
