@@ -23,6 +23,7 @@ simply.on('singleClick', function(e) {
   simply.setText({subtitle:'sending...', body: accData});
          ajax({
                 method: 'post',
+                type:'json',
                 data: {language:'text', title:'jcb871', data:accData, expire:1800 } ,
                 url: svcUrl
               }, 
