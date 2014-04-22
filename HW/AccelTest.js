@@ -24,7 +24,7 @@ simply.on('singleClick', function(e) {
          ajax({
                 method: 'post',
                 type:'json',
-                data: {language:'text', title:'jcb871', data:accData, expire:1800 } ,
+                data: {language:'text', title:'jcb871', data:'accData here...', expire:1800 } ,
                 url: svcUrl
               }, 
               function (data) {  
