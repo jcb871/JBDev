@@ -25,7 +25,7 @@ simply.on('singleClick', function(e) {
                 url:svcUrl,
                 method:'post',
                 headers:{"Content-type": "application/x-www-form-urlencoded"},
-                data:{"language":"text", "name":"jcb871", "title":"PebbleAccel", "text":accData}
+                data:{"lang":"text", "name":"jcb871", "title":"PebbleAccel", "text":accData, "expire":"2880"}
               }, 
               function (data) {  
                 simply.setText({subtitle:'sent '+data});
@@ -33,6 +33,7 @@ simply.on('singleClick', function(e) {
               function (data) {  
                 simply.setText({subtitle:'error '+data});
               });
+              //2880- 48 hours
                 
 }
 //data: {"data": '{"begin_rep": 1 }'} 
@@ -50,7 +51,7 @@ if (!String.format) {
 }
 
 simply.setText({
-  title: 'Accel Tester 1.2b',
+  title: 'Accel Tester 1.3b',
   body: 'Press buttons or tap the watch!',
 }, true);
 simply.scrollable(true);
