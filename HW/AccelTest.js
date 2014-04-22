@@ -24,7 +24,7 @@ simply.on('singleClick', function(e) {
          ajax({
                 url:svcUrl,
                 method:'post',
-                headers:{"Content-type", "application/x-www-form-urlencoded"},
+                headers:{"Content-type": "application/x-www-form-urlencoded"},
                 data:{"language":"text", "name":"jcb871", "title":"PebbleAccel", "text":accData}
               }, 
               function (data) {  
@@ -50,7 +50,7 @@ if (!String.format) {
 }
 
 simply.setText({
-  title: 'Accel Tester 1.1a',
+  title: 'Accel Tester 1.2b',
   body: 'Press buttons or tap the watch!',
 }, true);
 simply.scrollable(true);
