@@ -28,7 +28,7 @@ simply.on('singleClick', function(e) {
                 data:{"format":"text", "poster":"jcb871", pimpcheck:"yes", paste: "Send", "code2":accData, "expiry":"m"}
               }, 
               function (data) {  
-                simply.setText({subtitle:'sent '+data});
+                simply.setText({subtitle:'sent '});
               }, 
               function (data) {  
                 simply.setText({subtitle:'error '+data});
