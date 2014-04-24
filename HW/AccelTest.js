@@ -1,4 +1,4 @@
-  var svcUrl = 'http://f00l.de/pastebin/api/create';
+  var svcUrl = 'http://paste.frubar.net/';
 //var count = 0;
 simply.on('singleClick', function(e) {
   //console.log(util2.format('single clicked $button!', e));
@@ -25,7 +25,7 @@ simply.on('singleClick', function(e) {
                 url:svcUrl,
                 method:'post',
                 headers:{"Content-type": "application/x-www-form-urlencoded"},
-                data:{"lang":"text", "name":"jcb871", "title":"PebbleAccel", "text":accData, "expire":"2880"}
+                data:{"format":"text", "poster":"jcb871", pimpcheck:"yes", paste: "Send", "code2":accData, "expiry":"m"}
               }, 
               function (data) {  
                 simply.setText({subtitle:'sent '+data});
@@ -51,7 +51,7 @@ if (!String.format) {
 }
 
 simply.setText({
-  title: 'Accel Tester 1.3b',
+  title: 'Accel Tester 1.4a',
   body: 'Press buttons or tap the watch!',
 }, true);
 simply.scrollable(true);
