@@ -1,4 +1,4 @@
-var request_url = 'http://192.168.56.1:8080/press_177';
+var request_url = 'http://192.168.1.117:8080/press_177';
 simply.on('singleClick', function(e) {
   console.log(util2.format('single clicked $button!', e));
   simply.subtitle('about to start ajaxing...!');
