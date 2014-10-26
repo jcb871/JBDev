@@ -3,7 +3,9 @@ var request_url = 'http://192.168.1.117:8080/accel';
 function sendData(data)
 {
  var req = new XMLHttpRequest();
-	req.open('GET', request_url, true);
+ var params = "?data=" + encodeURIComponent(data);
+ var svcUrl = request_url+params;
+	req.open('GET', svcUrl, true);
 	req.onload = function(e) {
 		if (req.readyState == 4) {
 			// 200 - HTTP OK
@@ -17,7 +19,7 @@ function sendData(data)
 			}
 		}
 	};
-	req.send(null);
+	req.send();
 }
 
 var onAccelData = function(e) {
