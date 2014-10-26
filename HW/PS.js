@@ -1,46 +1,53 @@
-var request_url = 'http://192.168.1.117:8080/press_177';
-simply.on('singleClick', function(e) {
-  console.log(util2.format('single clicked $button!', e));
-  simply.subtitle('about to start ajaxing...!');
-  if(e.button == 'select')
-  {
-  simply.subtitle('now ajaxing...!');
-  var req = new XMLHttpRequest();
+var request_url = 'http://192.168.1.117:8080/accel';
+
+function sendData(data)
+{
+ var req = new XMLHttpRequest();
 	req.open('GET', request_url, true);
 	req.onload = function(e) {
 		if (req.readyState == 4) {
 			// 200 - HTTP OK
 			if(req.status == 200) {
-				console.log(req.responseText);
-				simply.subtitle("Server success");
-				simply.body("Response:"+req.responseText);
+				//console.log(req.responseText);
+				//simply.subtitle("Server success");
+				//simply.body("Response:"+req.responseText);
 			} else {
-				console.log("Request returned error code " + req.status.toString());
+				//console.log("Request returned error code " + req.status.toString());
 				simply.body("Server error:"+req.status.toString());
 			}
 		}
 	};
 	req.send(null);
-  /*
-  ajax({ method: 'get', url: svcUrl}, 
-        function (data) {
-          simply.vibe();
-          simply.body('sent ' + data);
-        }
-      );*/
+}
+
+var onAccelData = function(e) {
+  var data = JSON.stringify(e.accel);
+  simply.body('data: ' + data);
+  sendData(data);
+};
+ 
+// Press up to begin accelData streaming
+// Pressing up multiple times will register the handler more than once so be careful. 
+simply.on('singleClick', 'up', function(e) {
+  simply.on('accelData', onAccelData);
+});
+ 
+// Press down until all accelData handlers are removed and you can accelPeek again
+simply.on('singleClick', 'down', function(e) {
+  simply.off('accelData', onAccelData);
+});
+
+ // Press select to accelPeek
+simply.on('singleClick', 'select', function(e) {
+  if (simply.accelConfig().subscribe) {
+    // accelData and accelPeek can't happen simultaneously
+    return;
   }
-
+  simply.accelPeek(function(e) {
+  	var data = JSON.stringify(e.accel);
+  	simply.body('peek: ' + data);
+  	sendData(data);
+  });
 });
-/*
-simply.on('longClick', function(e) {
-  console.log(util2.format('long clicked $button!', e));
-  simply.vibe();
-  simply.scrollable(e.button !== 'select');
-});
-
-simply.on('accelTap', function(e) {
-  console.log(util2.format('tapped accel axis $axis $direction!', e));
-  simply.subtitle('Tapped ' + (e.direction > 0 ? '+' : '-') + e.axis + '!');
-});*/
 
 simply.setText({ title: 'Simply stream it!',  body: 'This is Streamer. Press button'}, true);
