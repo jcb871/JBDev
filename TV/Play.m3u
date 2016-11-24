@@ -1,0 +1,21 @@
+
+#EXTM3U
+
+#EXTINF:-1,Flowers
+http://roku.cinesoft.net/Live_Origin_Elemental/smil:flowersindia.smil/playlist.m3u8
+
+#EXTINF:-1,Kiran
+http://136.243.153.149:8081/ML1-kiran/stream/playlist.m3u8
+
+#EXTINF:-1,Surya
+http://136.243.153.149:8081/ML1-surya/stream/playlist.m3u8
+
+#EXTINF:-1,Asianet
+http://136.243.153.149:8081/ML1-asianetus/stream/playlist.m3u8
+
+#EXTINF:-1,Asianet Plus
+http://play-290.5centscdn.net/amsqasianetplus/pluslive.stream/playlist.m3u8
+
+#EXTINF:-1,Asianet Movies
+http://136.243.153.149:8081/ML1-asianetmovies/stream/playlist.m3u8
+
