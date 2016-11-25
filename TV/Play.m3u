@@ -8,7 +8,7 @@
     "Name": "Kiran",
     "RawSource": "http://136.243.153.149:8081/ML1-kiran/stream/playlist.m3u8",
     "Language": "Malayalam",
-    "Category": "Movies"
+    "Category": "Family"
 },
 {
     "Name": "Surya",
@@ -32,6 +32,12 @@
     "Name": "Asianet Movies",
     "RawSource": "http://136.243.153.149:8081/ML1-asianetmovies/stream/playlist.m3u8",
     "Language": "Malayalam",
-    "Category": "Movies"
+    "Category": "Family"
+},
+{
+    "Name": "Mathrubhumi News",
+    "RawSource": "http://llnwlive.prasaria.com/pr_live_origin_mathrubhumi/stream8042/playlist.m3u8",
+    "Language": "Malayalam",
+    "Category": "News"
 }
 ]
