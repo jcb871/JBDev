@@ -1,11 +1,37 @@
 [{
-    "Name": "Asianet Git Movies",
+    "Name": "Flowers",
+    "RawSource": "http://roku.cinesoft.net/Live_Origin_Elemental/smil:flowersindia.smil/playlist.m3u8",
+    "Language": "Malayalam",
+    "Category": "Family"
+},
+{
+    "Name": "Kiran",
+    "RawSource": "http://136.243.153.149:8081/ML1-kiran/stream/playlist.m3u8",
+    "Language": "Malayalam",
+    "Category": "Movies"
+},
+{
+    "Name": "Surya",
+    "RawSource": "http://136.243.153.149:8081/ML1-surya/stream/playlist.m3u8",
+    "Language": "Malayalam",
+    "Category": "Family"
+},
+{
+    "Name": "Asianet",
+    "RawSource": "http://136.243.153.149:8081/ML1-asianetus/stream/playlist.m3u8",
+    "Language": "Malayalam",
+    "Category": "Family"
+},
+{
+    "Name": "Asianet Plus",
+    "RawSource": "http://play-290.5centscdn.net/amsqasianetplus/pluslive.stream/playlist.m3u8",
+    "Language": "Malayalam",
+    "Category": "Family"
+},
+{
+    "Name": "Asianet Movies",
     "RawSource": "http://136.243.153.149:8081/ML1-asianetmovies/stream/playlist.m3u8",
     "Language": "Malayalam",
     "Category": "Movies"
-}, {
-    "Name": "Kiran TV",
-    "RawSource": "http://136.243.153.149:8081/ML1-asianetmovies/stream/playlist.m3u8",
-    "Language": "Malayalam",
-    "Category": "Movies"
-}]
+}
+]
