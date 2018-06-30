@@ -1,38 +1,16 @@
 <html>
-<head>
-  <script type="text/javascript"
-      src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js">
-  </script>
-  <style>
-   cast-media-player { --splash-image: url("splash.png"); }
-</style>
-</head>
-<body>
-  <cast-media-player></cast-media-player>
-  <script>
-const context = cast.framework.CastReceiverContext.getInstance();
-const playerManager = context.getPlayerManager();
-
-// Support load by entity by intercepting load request, and get media
-// information by entity and credentials.
-playerManager.setMessageInterceptor(
-    cast.framework.messages.MessageType.LOAD, loadRequestData => {
-      if (loadRequestData.media && loadRequestData.media.entity) {
-        return thirdparty
-            .getMediaById(
-                loadRequestData.media.entity, loadRequestData.credentials)
-            .then(media => {
-              if (media) {
-                loadRequestData.media.contentUrl = media.url;
-                loadRequestData.media.contentType = media.contentType;
-                loadRequestData.media.metadata = media.metadata;
-              }
-              return loadRequestData;
-            });
-      }
-      return loadRequestData;
-    });
-context.start();
-  </script>
-</body>
+  <head>
+    <title>Cast Media Player</title>
+    <link rel="stylesheet" href="0012/player.css" />
+    <script type="text/javascript" src="0012/player.js"></script>
+    <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
+    <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/mediaplayer/1.0.0/media_player.js"></script>
+  </head>
+  <body>
+    <div id="player"></div>
+    <script>
+      var playerDiv = document.querySelector("#player");
+      new castplayer.CastPlayer(playerDiv).start();
+    </script>
+  </body>
 </html>
