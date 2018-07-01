@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Custom Receiver Cast</title>
+  <style>
+    #player {
+        --theme-hue: 210;
+        --progress-color: rgb(0, 255, 0);
+    }
+  </style>
+  <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
+</head>
+<body>
+  <cast-media-player id="player"></cast-media-player>
+  <script>
+    console.log('Starting streamhub receiver...');
+    
+    const context = cast.framework.CastReceiverContext.getInstance();
+    const playerManager = context.getPlayerManager();
+    
+    const playbackConfig = new cast.framework.PlaybackConfig();
+    playbackConfig.manifestRequestHandler = requestInfo => {
+       requestInfo.headers = {};
+       requestInfo.headers['user-agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36';
+       requestInfo.headers['referer'] = 'http://cdn.tamil.games/yt/live.php?l=Asianet';
+    };
+    
+    context.start({playbackConfig: playbackConfig});
+  </script>
+</body>
+</html>
