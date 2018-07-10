@@ -20,9 +20,16 @@
     
     const playbackConfig = new cast.framework.PlaybackConfig();
     playbackConfig.manifestRequestHandler = requestInfo => {
+      // example of setting CORS withCredentials
+  requestInfo.withCredentials = true;
+  // example of setting headers
+  requestInfo.headers = {};
+  requestInfo.headers['content-type'] = 'text/xml;charset=utf-8';
+      /*
        requestInfo.headers = {};
        requestInfo.headers['user-agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36';
        requestInfo.headers['referer'] = 'http://cdn.tamil.games/yt/live.php?l=Asianet';
+      */
     };
     
     context.start({playbackConfig: playbackConfig});
