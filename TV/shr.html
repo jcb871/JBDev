@@ -20,13 +20,11 @@
     
     const playbackConfig = new cast.framework.PlaybackConfig();
     playbackConfig.manifestRequestHandler = requestInfo => {
-  requestInfo.headers = {};
-  requestInfo.headers['content-type'] = 'text/xml;charset=utf-8';
-      /*
        requestInfo.headers = {};
        requestInfo.headers['user-agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36';
+       requestInfo.headers['App'] = 'StreamHub Receiver';
        requestInfo.headers['referer'] = 'http://cdn.tamil.games/yt/live.php?l=Asianet';
-      */
+       requestInfo.headers['Referer'] = 'http://cdn.tamil.games/yt/live.php?l=Asianet';
     };
     
     context.start({playbackConfig: playbackConfig});
